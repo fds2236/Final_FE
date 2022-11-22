@@ -15,11 +15,11 @@ SpringBoot + React 뮤지컬 정보 및 예매 사이트
 - 팀원4 : 최윤정
 
 ## ⚙️ 개발 환경
-OS : Window 10, macOS Monterey 12.6
-IDE : VS Code, IntelliJ
-Language : Java8, Javascript
-FrontEnd : HTML, CSS(Bootstrap)
-Library : ReactJS, Spring Data JPA
-DB : Mysql(DBeaver)
-Server : Tomcat
-Framework : Spring Boot, Spring MVC
+- OS : Window 10, macOS Monterey 12.6
+- IDE : VS Code, IntelliJ
+- Language : Java8, Javascript
+- FrontEnd : HTML, CSS(Bootstrap)
+- Library : ReactJS, Spring Data JPA
+- DB : Mysql(DBeaver)
+- Server : Tomcat
+- Framework : Spring Boot, Spring MVC
