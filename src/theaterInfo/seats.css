@@ -22,6 +22,65 @@
 }
 
 
+/* 충무아트 좌석 정보 */
+.aa1 .row {
+  justify-content: flex-end;
+  padding-right: 25px;
+  padding-left: 50px;
+}
+
+.bb1 {
+  display: block;  
+}
+
+.bb1 .row {
+  justify-content: center;
+  padding-left : 25px;
+  padding-right : 25px;   
+}
+
+.cc1 .row {
+  justify-content : flex-start;
+  padding-left : 25px;
+  padding-right: 50px;
+}
+
+.aa2 .row {
+  justify-content: flex-end;
+  padding-left: 50px;
+  padding-right : 25px;
+}
+
+.bb2 .row {
+  justify-content: center;
+  padding-left : 25px;
+  padding-right : 25px;   
+}
+
+.cc2 .row {
+  justify-content : flex-start;
+  padding-left : 25px;
+  padding-right: 50px;
+}
+
+.aa3 .row {
+  justify-content: flex-end;
+  padding-left: 50px;
+  padding-right : 25px;
+
+}
+
+.bb3 .row {
+  justify-content: center;
+  padding-left : 25px;
+  padding-right : 25px;   
+}
+
+.cc3 .row {
+  justify-content : flex-start;
+  padding-left : 25px;
+  padding-right: 50px;
+}
 
 
 

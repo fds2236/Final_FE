@@ -8,6 +8,7 @@ const Home = () => {
         <h1>Home 입니다</h1>
         <Link to = "/login"> 로그인</Link> <br></br>
         <Link to = "/FirstFloorChar"> 샤롯데 좌석 정보</Link> <br></br>
+        <Link to = "/FirstFloorChung"> 충무아트 좌석 정보</Link> <br></br>
         
 
         </>
