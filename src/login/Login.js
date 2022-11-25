@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
-import { useState} from "react";
-import MiniApi from "../api/MuteApi";
+import { useState } from "react";
+import MuteApi from "../api/MuteApi";
 import Modal from "../util/Modal";
 import styled from "styled-components";
+
+const LoginBlock = styled.div``;
+const PageLink = styled.div``;
+
 
 const Login = () => {
        // 아이디, 비밀번호 입력
@@ -57,7 +61,7 @@ const Login = () => {
         // 200은 정상 로그인, 300은 id가 없음, 400은 pwd틀림
        const onClickLogin = async() => {
         try {
-            const res = await MiniApi.userLogin(inputId, inputPwd);
+            const res = await MuteApi.userLogin(inputId, inputPwd);
             console.log(res.data.result);
 
             if(res.data.result === 200) {
@@ -104,9 +108,9 @@ const Login = () => {
             </LoginBlock>
            
             <PageLink>
-                <Link to="/Agree" className="link_item">회원가입</Link>
-                <Link to="/ForgotId" className="link_item">아이디 찾기</Link>
-                <Link to="/ForgotPwd" className="link_item">비밀번호 찾기</Link>
+                {/* <Link to="/Agree" className="link_item">회원가입</Link> */}
+                <Link to="/FindId" className="link_item">아이디 찾기</Link>
+                {/* <Link to="/FindPwd" className="link_item">비밀번호 찾기</Link> */}
             </PageLink>
 
             {modalOpen && <Modal open={modalOpen} close={closeModal} header="확인">{modalText}</Modal>}

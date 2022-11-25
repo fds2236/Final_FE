@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState} from "react";
-import MiniApi from "../api/MuteApi";
+import MuteApi from "../api/MuteApi";
 import Modal from '../util/Modal'
 import styled from "styled-components";
+
+const ForgotIdBlock = styled.div``;
+const PageLink = styled.div``;
 
 
 const FindId = () => {
@@ -29,7 +32,7 @@ const FindId = () => {
     // 아이디 찾기 버튼 누르면 활성화
     const onClickId = async() => {
         try {
-            const res = await MiniApi.researchId(inputName, inputEmail);
+            const res = await MuteApi.researchId(inputName, inputEmail);
             console.log(res.data.result);
             setModalOpen(true);
             // localStorage에 JSON처리된 obj를 넣는다
@@ -42,7 +45,7 @@ const FindId = () => {
             // clear : 항목 전제 제거
 
             if(res.data.result === "OK") {
-                setFindId(res.data.id); // 찍어주기위해 id값 저장!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                setFindId(res.data.id); // 찍어주기위해 id값 저장
             } else {
                 setFindId("존재하는 아이디가 없습니다.");
             }
@@ -71,9 +74,9 @@ const FindId = () => {
                 
             <PageLink>
                 {/* 다른 페이지 연결 */}
-                <Link to="/SignUp" className="link_item">회원가입</Link>
+                {/* <Link to="/SignUp" className="link_item">회원가입</Link> */}
                 <Link to="/Login" className="link_item">로그인</Link>
-                <Link to="/ForgotPwd" className="link_item">비밀번호 찾기</Link>
+                <Link to="/FindPwd" className="link_item">비밀번호 찾기</Link>
             </PageLink>
             {modalOpen && <Modal open={modalOpen} close={closeModal} header="확인">{findId}</Modal>}
         </div>
