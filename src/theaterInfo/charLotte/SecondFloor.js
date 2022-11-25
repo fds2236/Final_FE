@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import styled from "styled-components";
 import { ReactDOM } from "react";
+import { Link } from "react-router-dom";
 import '../seats.css';
 
 
@@ -15,6 +16,7 @@ const SecondFloor = () => {
         <>
         
         <h1>SecondFloor 입장 성공</h1>
+        <Link to = "/"> Home으로 돌아가기</Link>
         <div className="grid-containder modal-background" id="modal-background">  
         </div>
 
