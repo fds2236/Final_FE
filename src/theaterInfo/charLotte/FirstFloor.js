@@ -1,7 +1,7 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import styled from "styled-components";
 import { ReactDOM } from "react";
-import './FirstFloorCss.css';
+import '../seats.css';
 
 
 const onClickSeat = (event) => {
