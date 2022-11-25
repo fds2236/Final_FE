@@ -10,7 +10,7 @@ const MuteApi =  {
             user_id: id,
             pwd: pwd
         }
-        return await axios.post(MUTE_DOMAIN + "MemberController", loginObj, HEADER);
+        return await axios.post(MUTE_DOMAIN + "/member/login", loginObj, HEADER);
     },
 
     // 아이디 찾기 
@@ -19,7 +19,7 @@ const MuteApi =  {
             name: name,
             mail: mail
         }
-        return await axios.post(MUTE_DOMAIN + "MemberController", findIdObj, HEADER);
+        return await axios.post(MUTE_DOMAIN + "/member/findId", findIdObj, HEADER);
     }
 
 }
