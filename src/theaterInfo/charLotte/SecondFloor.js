@@ -16,7 +16,8 @@ const SecondFloor = () => {
         <>
         
         <h1>SecondFloor 입장 성공</h1>
-        <Link to = "/"> Home으로 돌아가기</Link>
+        <Link to = "/"> Home으로 돌아가기</Link> <br></br>
+        <Link to = "/FirstFloor">1층보기</Link>
         <div className="grid-containder modal-background" id="modal-background">  
         </div>
 
