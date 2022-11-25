@@ -1,10 +1,10 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import FirstFloor from './theaterInfo/charLotte/FirstFloor';
+import FirstFloorChar from './theaterInfo/charLotte/FirstFloorChar';
 import Home from './home/Home';
 import Login from './login/Login';
 import FindId from './login/FindId';
-import SecondFloor from './theaterInfo/charLotte/SecondFloor';
+import SecondFloorChar from './theaterInfo/charLotte/SecondFloorChar';
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} /> 
-        <Route path="/FirstFloor" element={<FirstFloor />} />
-        <Route path="/SecondFloor" element={<SecondFloor />} />
+        <Route path="/FirstFloorChar" element={<FirstFloorChar />} />
+        <Route path="/SecondFloorChar" element={<SecondFloorChar />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/FindId' element={<FindId/>} />
       </Routes>
