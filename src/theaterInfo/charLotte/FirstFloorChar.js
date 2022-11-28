@@ -5,30 +5,29 @@ import { Link } from "react-router-dom";
 import '../seats.css';
 
 
-function prevAll(element) {
-    let result = []; 
-
-    try {
-        while (element = element.previousElementSibling){
-            result.push(element); 
+function prevAll(element) { // element 이전의 모든 형제노드의 갯수를 구하는 함수
+    let result = []; //빈 배열을 만들어서 앞에있는 모든 형제노드를 넣어줄 예정 
+    
+        while (element = element.previousElementSibling){ // 이전의 모든 형제노드를 구하는 previousElementSibling  
+            result.push(element);
         }
-    }
-    catch {
-        return 1;
-    }
-        
-        
-    return result.length + 1;
+           
+    return result.length; 
 }
 
 const onClickSeat = (event) => {
 
     let tmp = event.currentTarget.getAttribute("pk");
-    let seatNum = event.currentTarget.innerText;
-    let parentNode = prevAll(event.currentTarget.parentNode.parentNode.previousSibling);
+    let seatNum = event.currentTarget.innerText; // 현재 currentTarget의 innerText (태그 안의 텍스트)를 불러온다 
+
+    // 코드를 잘 보면, 부모자식 관계의 className을 보면 row > seats > seat 이다
+    // 내가 지금 몇번째 row인지 확인하려고 이전의 row의 갯수를 세는 (이전 모든 형제노드 갯수) 함수를 만들어 놓았으니
+    // row 까지 두번 올라간 후 형제노드를 찾아야 한다
+    // parentNode를 두번 사용해 두번 올라간다 
+    let parentNode = prevAll(event.currentTarget.parentNode.parentNode);
 
     alert(parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + tmp);
-    console.log("PK : " + tmp + "\n좌석번호 : " + seatNum + "\n테스트값 : " + parentNode);
+    console.log(parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + tmp);
 }
 
 
