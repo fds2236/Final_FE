@@ -5,9 +5,30 @@ import { Link } from "react-router-dom";
 import '../seats.css';
 
 
+function prevAll(element) {
+    let result = []; 
+
+    try {
+        while (element = element.previousElementSibling){
+            result.push(element); 
+        }
+    }
+    catch {
+        return 1;
+    }
+        
+        
+    return result.length + 1;
+}
+
 const onClickSeat = (event) => {
+
     let tmp = event.currentTarget.getAttribute("pk");
-    alert(tmp);
+    let seatNum = event.currentTarget.innerText;
+    let parentNode = prevAll(event.currentTarget.parentNode.parentNode.previousSibling);
+
+    alert(parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + tmp);
+    console.log("PK : " + tmp + "\n좌석번호 : " + seatNum + "\n테스트값 : " + parentNode);
 }
 
 
