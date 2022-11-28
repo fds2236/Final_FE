@@ -1,6 +1,6 @@
 import axios from "axios";
 const HEADER = "application/json";
-const MUTE_DOMAIN = "http://localhost:8111/";
+const MUTE_DOMAIN = "http://localhost:8282/";
 
 const MuteApi =  {
 
