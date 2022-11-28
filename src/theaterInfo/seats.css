@@ -1,9 +1,101 @@
+
+
+/* 샤롯데씨어터 */
+#charlottetheater.A1A1 .row,#charlottetheater.A1A2 .row{
+  justify-content: flex-end;
+}
+#charlottetheater.A1A1, #charlottetheater.A1A2{
+  padding-left: 50px;
+}
+#charlottetheater.C1C1, #charlottetheater.C1C2{
+  padding-right: 50px;
+}
+#charlottetheater.B1B1 .row,#charlottetheater.B1B2 .row{
+  justify-content : center;
+} 
+#charlottetheater.AA1, #charlottetheater.BB1, #charlottetheater.AA2, #charlottetheater.BB2{
+  margin-top : 50px;
+}
+#charlottetheater.A1A1, #charlottetheater.B1B1, #charlottetheater.A1A2, #charlottetheater.B1B2{
+  padding-right : 20px;
+}
+#charlottetheater.B1B1, #charlottetheater.C1C1, #charlottetheater.B1B2, #charlottetheater.C1C2{
+  padding-left : 20px;
+}
+
+
+/* 충무아트 대극장 */
+#chungmu_grand.AA1 .row {
+  justify-content: flex-end;
+  padding-right: 25px;
+  padding-left: 50px;
+}
+
+#chungmu_grand.BB1 {
+  display: block;  
+}
+
+#chungmu_grand.BB1 .row {
+  justify-content: center;
+  padding-left : 25px;
+  padding-right : 25px;   
+}
+
+#chungmu_grand.CC1 .row {
+  justify-content : flex-start;
+  padding-left : 25px;
+  padding-right: 50px;
+}
+
+#chungmu_grand.AA2 .row {
+  justify-content: flex-end;
+  padding-left: 50px;
+  padding-right : 25px;
+}
+
+#chungmu_grand.BB2 .row {
+  justify-content: center;
+  padding-left : 25px;
+  padding-right : 25px;   
+}
+
+#chungmu_grand.CC2 .row {
+  justify-content : flex-start;
+  padding-left : 25px;
+  padding-right: 50px;
+}
+
+#chungmu_grand.AA3 .row {
+  justify-content: flex-end;
+  padding-left: 50px;
+  padding-right : 25px;
+
+}
+
+#chungmu_grand.BB3 .row {
+  justify-content: center;
+  padding-left : 25px;
+  padding-right : 25px;   
+}
+
+#chungmu_grand.CC3 .row {
+  justify-content : flex-start;
+  padding-left : 25px;
+  padding-right: 50px;
+}
+
+
+
+
+
+
+
 /* 샤롯데 */
-.A1A1 .row,.A1A2 .row{
+/* .A1A1 .row,.A1A2 .row{
     justify-content: flex-end;
 }
 .A1A1, .A1A2{
-    padding-left: 50px;
+    padding-left: 50px;ㅁ
 }
 .C1C1, .C1C2{
     padding-right: 50px;
@@ -19,68 +111,87 @@
 }
 .B1B1, .C1C1, .B1B2, .C1C2{
     padding-left : 20px;
-}
+} */
+
+
+
 
 
 /* 충무아트 좌석 정보 */
-.aa1 .row {
+/* .AA1 .row {
   justify-content: flex-end;
   padding-right: 25px;
   padding-left: 50px;
 }
 
-.bb1 {
+.AA1 {
+  margin-top: 0;
+} 
+
+.BB1 {
   display: block;  
+  margin-top: 0;
 }
 
-.bb1 .row {
+.BB1 .row {
   justify-content: center;
   padding-left : 25px;
   padding-right : 25px;   
 }
 
-.cc1 .row {
+.CC1 .row {
   justify-content : flex-start;
   padding-left : 25px;
   padding-right: 50px;
 }
 
-.aa2 .row {
+
+
+.AA2 .row {
   justify-content: flex-end;
   padding-left: 50px;
   padding-right : 25px;
 }
 
-.bb2 .row {
+.AA2 {
+  margin-top: 0;
+}
+
+.BB2 .row {
   justify-content: center;
   padding-left : 25px;
   padding-right : 25px;   
 }
 
-.cc2 .row {
+.BB2 {
+  margin-top: 0;
+}
+
+.CC2 .row {
   justify-content : flex-start;
   padding-left : 25px;
   padding-right: 50px;
 }
 
-.aa3 .row {
+.AA3 .row {
   justify-content: flex-end;
   padding-left: 50px;
   padding-right : 25px;
 
 }
 
-.bb3 .row {
+.BB3 .row {
   justify-content: center;
   padding-left : 25px;
   padding-right : 25px;   
 }
 
-.cc3 .row {
+.CC3 .row {
   justify-content : flex-start;
   padding-left : 25px;
   padding-right: 50px;
-}
+} */
+
 
 
 
@@ -147,7 +258,7 @@
   /* 열 flex */
   .row {
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: nowrap;
   }
   
   .seats {
@@ -235,6 +346,7 @@
   .floor_container {
     display: flex;
     justify-content: center;
+
   }
   #seattable_zone {
     color: black;
@@ -248,6 +360,7 @@
     font-size: 0.7em;
   }
   
+ 
  
   
   

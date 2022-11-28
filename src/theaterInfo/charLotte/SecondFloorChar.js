@@ -15,9 +15,10 @@ const SecondFloorChar = () => {
     return (
         <>
         
-        <h1>SecondFloor 입장 성공</h1>
+        <h1>샤롯데 SecondFloor 입장 성공</h1>
         <Link to = "/"> Home으로 돌아가기</Link> <br></br>
-        <Link to = "/FirstFloorChar">1층보기</Link>
+        <Link to = "/FirstFloorChar">1층보기</Link> <br></br>
+        <Link to = "/SecondFloorChar">2층보기</Link>
         <div className="grid-containder modal-background" id="modal-background">  
         </div>
 
