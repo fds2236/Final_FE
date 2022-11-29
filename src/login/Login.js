@@ -5,7 +5,7 @@ import Modal from "../util/Modal";
 import styled from "styled-components";
 
 const LoginBlock = styled.div``;
-const PageLink = styled.div``;
+
 
 
 const Login = () => {
@@ -58,7 +58,6 @@ const Login = () => {
        }
 
         // API호출
-        // 200은 정상 로그인, 300은 id가 없음, 400은 pwd틀림
        const onClickLogin = async() => {
         try {
             const res = await MuteApi.userLogin(inputId, inputPwd);
@@ -106,12 +105,6 @@ const Login = () => {
                 <button className="loginButton" onClick={onClickLogin}>LOGIN</button>
                 <br/>
             </LoginBlock>
-           
-            <PageLink>
-                {/* <Link to="/Agree" className="link_item">회원가입</Link> */}
-                <Link to="/FindId" className="link_item">아이디 찾기</Link>
-                {/* <Link to="/FindPwd" className="link_item">비밀번호 찾기</Link> */}
-            </PageLink>
 
             {modalOpen && <Modal open={modalOpen} close={closeModal} header="확인">{modalText}</Modal>}
         </div>
