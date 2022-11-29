@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import FirstFloorChar from './theaterInfo/charLotte/FirstFloorChar';
 import Home from './home/Home';
 import Login from './login/Login';
-import FindId from './login/FindId';
 import SecondFloorChar from './theaterInfo/charLotte/SecondFloorChar';
 import FirstFloorChung from './theaterInfo/chungmuArt/FirstFloorChung';
 import SecondFloorChung from './theaterInfo/chungmuArt/SecondFloorChung';
@@ -21,7 +20,6 @@ function App() {
         <Route path="/SecondFloorChung" element={<SecondFloorChung />} />
         <Route path="/ThirdFloorChung" element={<ThirdFloorChung />} />
         <Route path='/Login' element={<Login />} />
-        <Route path='/FindId' element={<FindId/>} />
       </Routes>
     </Router>
     </>

@@ -64,18 +64,16 @@ const Login = () => {
             console.log(res.data.result);
 
             if(res.data.result === 200) {
-                window.localStorage.setItem("whoLoginNow",inputId); // 로그인 정보 저장
+                window.localStorage.setItem("whoLoginNow",inputId);
                 window.localStorage.setItem("whoPwdNow",inputPwd); 
                 window.location.replace("/");
 
             } else if(res.data.result === 300) {
                 setModelText("존재하지 않는 아이디입니다.");
                 setModalOpen(true);
-                // 아이디가 존재하지 않습니다. 모달창 팝업
             } else {
                 setModelText("패스워드를 다시 확인하여주시기 바랍니다.");
                 setModalOpen(true);
-                // 패스워드가 틀립니다. 모달창 팝업(res.data.result === 400)
             }
         } catch (e) {
         } 
