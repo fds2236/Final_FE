@@ -4,7 +4,7 @@ import MuteApi from "../api/MuteApi";
 import Modal from "../util/Modal";
 import styled from "styled-components";
 
-const LoginBlock = styled.div``;
+const LoginBox = styled.div``;
 
 const Login = () => {
        // 아이디, 비밀번호 입력
@@ -47,7 +47,7 @@ const Login = () => {
            const pwdCurrent = e.target.value;
            setInputPwd(pwdCurrent)
            if(!pwdRegex.test(pwdCurrent)) {
-               setPwdMessage("숫자+영문자+특수문자 조합으로 8자리 이상 입력하세요.");
+               setPwdMessage("숫자, 영문자, 특수문자 포함 8자리 이상 입력하세요.");
                setIsPwd(false);
            } else {
                setPwdMessage("올바른 형식입니다.");
@@ -79,7 +79,7 @@ const Login = () => {
    
        return(
         <div className="container">
-            <LoginBlock>
+            <LoginBox>
                 <h5>로그인</h5>
                 {/* 아이디 입력창 */}
                 <input className="input" value={inputId} placeholder="아이디" onChange={onChangeId}></input>   
@@ -100,7 +100,7 @@ const Login = () => {
                 {/* 로그인 버튼 */}
                 <button className="loginButton" onClick={onClickLogin}>LOGIN</button>
                 <br/>
-            </LoginBlock>
+            </LoginBox>
 
             {modalOpen && <Modal open={modalOpen} close={closeModal} header="확인">{modalText}</Modal>}
         </div>
