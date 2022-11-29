@@ -6,8 +6,6 @@ import styled from "styled-components";
 
 const LoginBlock = styled.div``;
 
-
-
 const Login = () => {
        // 아이디, 비밀번호 입력
        const [inputId, setInputId] = useState("");
@@ -22,7 +20,7 @@ const Login = () => {
        const [isPwd, setIsPwd] = useState("");
    
        // 로그인 오류 팝업
-       const [modalOpen, setModalOpen] = useState(false); //default : 아이디가 존재하지 않음 
+       const [modalOpen, setModalOpen] = useState(false); 
        
        // 모달
        const [modalText, setModelText] = useState("");
