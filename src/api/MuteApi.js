@@ -4,7 +4,7 @@ const MUTE_DOMAIN = "http://localhost:8282/";
 
 const MuteApi =  {
 
-    // 로그인
+    // 로그인 - 도연
     Login: async function(id, pwd) {
         const loginObj = {
             userId: id,
