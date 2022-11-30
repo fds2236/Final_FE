@@ -21,7 +21,7 @@ function App() {
         <Route path="/SecondFloorChung" element={<SecondFloorChung />} />
         <Route path="/ThirdFloorChung" element={<ThirdFloorChung />} />
         <Route path='/Login' element={<Login />} />
-        <Route path='/review' element={<MusicalReview />} />
+        <Route path='/MusicalReview' element={<MusicalReview />} />
       </Routes>
     </Router>
     </>
