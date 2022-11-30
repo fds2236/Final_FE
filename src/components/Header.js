@@ -3,11 +3,37 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBell } from 'react-icons/fa';
 
-
 const Menu = styled.div`
+  background-color: #CF0A0A;
+  width: 100%;
+  padding: 10px 0px 15px 0px;
+  display: flex;
+  justify-content: right;
+  .menu_item {
+    margin-left: 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 11px;  
+    color: #ffffff;
+    cursor: pointer;
+
+  }
 `;
 
+const Logo = styled.div`
+ color: #CF0A0A;
+ p {
+    font-size : 18px;
+ }
 
+ h1 {
+    font-size : 50px;
+ }
+`;
+
+const Nav = styled.div``;
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 const Header = () => {
 
     // 로그인했을 경우 현재 ID 표시
@@ -38,12 +64,23 @@ const Header = () => {
              <div className="menu_item">마이페이지</div>
              <Link to={"/Like"} className="menu_item">찜하기</Link>
             </>)
-            } 
+            }
+            <Link to = {"/Membership"} className="menu_item">멤버십</Link>
             <Link to = {"/Cs"} className="menu_item">고객센터</Link>
         </Menu>
+        
+        {/* Logo영역은 추후 로고가 만들어지면 변경 예정 */}
+        <Logo>
+            <p className="logo_item">당신의 <b>뮤지컬 메이트</b></p>
+            <h1 className="logo_item">MUTE</h1>
+        </Logo>
+
+        <Nav>
+
+        </Nav>
 
 
-  
+
         </>
     )
 
