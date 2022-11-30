@@ -7,6 +7,7 @@ import SecondFloorChar from './theaterInfo/charLotte/SecondFloorChar';
 import FirstFloorChung from './theaterInfo/chungmuArt/FirstFloorChung';
 import SecondFloorChung from './theaterInfo/chungmuArt/SecondFloorChung';
 import ThirdFloorChung from './theaterInfo/chungmuArt/ThirdFloorChung';
+import MusicalReview from './review/MusicalReview';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/SecondFloorChung" element={<SecondFloorChung />} />
         <Route path="/ThirdFloorChung" element={<ThirdFloorChung />} />
         <Route path='/Login' element={<Login />} />
+        <Route path='/review' element={<MusicalReview />} />
       </Routes>
     </Router>
     </>
