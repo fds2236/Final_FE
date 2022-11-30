@@ -1,6 +1,8 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import FirstFloorChar from './theaterInfo/charLotte/FirstFloorChar';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './home/Home';
 import Login from './login/Login';
 import SecondFloorChar from './theaterInfo/charLotte/SecondFloorChar';
@@ -9,12 +11,16 @@ import SecondFloorChung from './theaterInfo/chungmuArt/SecondFloorChung';
 import ThirdFloorChung from './theaterInfo/chungmuArt/ThirdFloorChung';
 import Review from './review/Review';
 import Reservation from './reservation/Reservation';
+import Cs from './cs/Cs';
+import SignUp from './signup/SignUp';
+import Like from './util/Like';
 
 
 function App() {
   return (
     <>
     <Router>
+      <Header/>
       <Routes>
         <Route path="/" element={<Home />} /> 
         <Route path="/FirstFloorChar" element={<FirstFloorChar />} />
@@ -23,9 +29,13 @@ function App() {
         <Route path="/SecondFloorChung" element={<SecondFloorChung />} />
         <Route path="/ThirdFloorChung" element={<ThirdFloorChung />} />
         <Route path='/Login' element={<Login />} />
+        <Route path='/SignUp' element={<SignUp />} />
         <Route path='/Review' element={<Review />} />
         <Route path='/Reservation' element={<Reservation />} />
+        <Route path='/Like' element={<Like />} />
+        <Route path='/Cs' element={<Cs />} />
       </Routes>
+      <Footer/>
     </Router>
     </>
   );
