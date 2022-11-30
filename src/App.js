@@ -15,6 +15,7 @@ import Reservation from './reservation/Reservation';
 import Cs from './cs/Cs';
 import SignUp from './signup/SignUp';
 import Like from './util/Like';
+import Membership from './membership/Membership';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path='/Reservation' element={<Reservation />} />
         <Route path='/Like' element={<Like />} />
         <Route path='/Cs' element={<Cs />} />
+        <Route path='/Membership' element={<Membership/>} />
       </Routes>
       <Footer/>
     </Router>
