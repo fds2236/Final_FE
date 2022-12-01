@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Login from "../login/Login";
 import Pay from "./Pay";
@@ -7,9 +7,9 @@ import SelectMusical from "./SelectMusical";
 import SelectSeat from "./SelectSeat";
 
 const TmpBox = styled.div`
-    
-    width: 300px;
-    height: 400px;
+   
+    width: 90%;
+    height: fit-content;
     border: 2px solid black;
 `;
 
@@ -17,9 +17,10 @@ const TmpBox = styled.div`
 
 const Reservation = () => {
 
-    // useEffect(() => {
-        
-    // },[])
+    useEffect(() => {
+        window.localStorage.setItem("seatInfoMode","예매");
+        console.log("현재 seatInfoMode : " + window.localStorage.getItem("seatInfoMode"));
+    })
 
     const [count, setCount] = useState(0)
     
@@ -30,10 +31,12 @@ const Reservation = () => {
        
     }
 
+
+
     return(
         <>
         <h1>예매 페이지 입니다</h1>
-        
+        <button onClick={onClickNext}>다음으로</button>
         <TmpBox>
         {count === 0 ? <SelectMusical /> : null}
         {count === 1 ? <SelectDate /> : null }
@@ -43,7 +46,7 @@ const Reservation = () => {
         {count === 5 ? setCount(0) : null}
         </TmpBox>
      
-        <button onClick={onClickNext}>다음으로</button>
+        
         </>
     );
 }
