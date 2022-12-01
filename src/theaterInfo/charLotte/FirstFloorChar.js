@@ -37,6 +37,23 @@ const FirstFloorChar = () => {
 
     useEffect(() => {
         window.localStorage.setItem("floor",1);
+        let seatInfoMode = window.localStorage.getItem("seatInfoMode");
+        console.log("seatInfoMode : " + seatInfoMode)
+        // if(seatInfoMode === "후기") {
+         
+        // } else {
+
+        // }
+        
+
+
+
+
+
+
+
+
+
         //document.getElementById('8452').parentNode.setAttribute('class','real red');
     })
 
