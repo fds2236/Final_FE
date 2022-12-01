@@ -316,6 +316,9 @@
   .green {
     background-color: #00b16a;
   }
+  .purple {
+    background-color: rgb(224, 123, 224);
+  }
   .no_review {
     background-color: #ebebeb;
   }

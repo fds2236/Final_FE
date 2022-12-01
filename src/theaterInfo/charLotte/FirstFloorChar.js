@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ReactDOM, useEffect } from "react";
 import { Link } from "react-router-dom";
 import '../seats.css';
+import { flushSync } from "react-dom";
 
 
 function prevAll(element) { // element 이전의 모든 형제노드의 갯수를 구하는 함수
@@ -17,8 +18,15 @@ function prevAll(element) { // element 이전의 모든 형제노드의 갯수�
 
 const onClickSeat = (event) => {
 
-    let tmp = event.currentTarget.getAttribute("pk");
-    let seatNum = event.currentTarget.innerText; // 현재 currentTarget의 innerText (태그 안의 텍스트)를 불러온다 
+    let pkNum = event.currentTarget.getAttribute("pk");
+    let grade = event.currentTarget.getAttribute("class");
+    let seatNum = event.currentTarget.innerText; // 현재 currentTarget의 innerText (태그 안의 텍스트)를 불러온다
+    
+    if(grade === "real purple") { grade = "VIP"}
+    else if (grade === "real lightgreen") {grade = "R"}
+
+
+
 
     // 코드를 잘 보면, 부모자식 관계의 className을 보면 row > seats > seat 이다
     // 내가 지금 몇번째 row인지 확인하려고 이전의 row의 갯수를 세는 (이전 모든 형제노드 갯수) 함수를 만들어 놓았으니
@@ -26,8 +34,8 @@ const onClickSeat = (event) => {
     // parentNode를 두번 사용해 두번 올라간다 
     let parentNode = prevAll(event.currentTarget.parentNode.parentNode);
     let floor = window.localStorage.getItem("floor");
-    alert(floor + "층 "+parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + tmp);
-    console.log(parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + tmp);
+    alert(floor + "층 "+parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + pkNum + "\n등급 : " + grade);
+    console.log(parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + pkNum);
 }
 
 
@@ -39,13 +47,43 @@ const FirstFloorChar = () => {
         window.localStorage.setItem("floor",1);
         let seatInfoMode = window.localStorage.getItem("seatInfoMode");
         console.log("seatInfoMode : " + seatInfoMode)
-        // if(seatInfoMode === "후기") {
-         
+        //if(seatInfoMode === "후기") {
+            
+             for(let i = 8193 ; i <= 8954 ; i++) {
+
+                if((i>=8414 && i<= 8568)){    // VIP좌석
+                    try{
+                        document.getElementById(i).parentNode.setAttribute('class','real purple');
+                        window.localStorage.setItem("price","VIP");
+                        console.log(i);
+                    } catch{
+                        
+                    }
+                }
+
+                if((i>=8193 && i<=8391) || (i>=8756 && i<= 8954) || (i>=8569 && i<= 8733) ){    //  R 좌석
+                    try{
+                        document.getElementById(i).parentNode.setAttribute('class','real lightgreen');
+                        window.localStorage.setItem("price","R");
+                        console.log(i);
+                    }catch{}
+                }
+                
+                
+
+            
+
+
+             }
+             
+
+
+
         // } else {
 
         // }
         
-
+        
 
 
 
