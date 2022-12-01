@@ -24,33 +24,13 @@ const Review = () => {
 
 
     // 텍스트 입력
-    // const [muText, setMuText] = useState(false); // 총평 후기(필수)
-    // const [seText, setSeText] = useState(false); // 좌석 후기(선택)
-
-    // 체크박스
-    const [Mucheck, setMuCheck] = useState(true); // 총평 후기(필수)
-    const [Secheck, setSeCheck] = useState(false); // 좌석 후기(선택)
-
-    // 좌석 후기 입력하면 자동으로 체크박스 체크
-    const muText = (e) => {
-        if(e.target.input === false) setMuCheck(false);
-        else {
-        }
-        setMuCheck(true);
-    };
-
-    const seText = (e) => {
-        if(e.target.input === false) setSeCheck(false);
-        else {
-        }
-        setSeCheck(true);
-    };
-
-    // 총평 후기 안쓰고 좌석 후기 체크하면 모달창 띄우기??
+    const [muText, setMuText] = useState(false); // 총평 후기
+    const [seText, setSeText] = useState(false); // 좌석 후기
     
 
     // 모달
-    const [modalOpen, setModalOpen] = useState("");
+    const [muModalOpen, setMuModalOpen] = useState("");
+    const [seModalOpen, setSeModalOpen] = useState("");
 
     // const [muStar, setMuStar] = useState("");  // 별점
 
@@ -80,7 +60,7 @@ const Review = () => {
     // Api 호출
     // 후기 작성 버튼이 눌려지면 동작하는 함수
     const OnClickWrite = () => {
-        setModalOpen(true);
+        setMuModalOpen(true);
     };
 
     const confirmModal = async() => {
@@ -94,53 +74,53 @@ const Review = () => {
     };
 
     const closeModal = () => {
-        setModalOpen(false);
+        setMuModalOpen(false);
     };
 
     
 
     return (
         <div className="container">
-        <div>후기</div>
-        <WriteButton onClick={OnClickWrite} text={"후기 작성"}></WriteButton>
 
-        {modalOpen && <ReviewModal open={modalOpen} confirm={confirmModal} close={closeModal} type={true} header="Review">
-        <div>
-            <fieldset>
-            <h4><input type="checkbox" checked={Mucheck}/>총평 후기(필수)</h4>
-            <div>별점 [{}]</div>
-            <textarea input={muText} placeholder="관람하신 뮤지컬의 총평을 작성해주세요."></textarea>
-            </fieldset>
+            <div>총평 후기</div>
+            <WriteButton onClick={OnClickWrite} text={"후기 작성"}></WriteButton>
+            {muModalOpen && <ReviewModal open={muModalOpen} confirm={confirmModal} close={closeModal} type={true} header="총평 후기">
+            <div>
+                <div>별점 [{}]</div>
+                <textarea placeholder="관람하신 뮤지컬의 총평을 작성해주세요."></textarea>
+            </div>
+            </ReviewModal>}
 
-            <fieldset>
-            <h4><input type="checkbox" checked={Secheck}/>좌석 후기(선택)</h4>
-            <div> 좌석
-                <select>
-                <option>층</option>
-                <option></option>
-                <option></option>
-                </select>
-                <select>
-                <option>구역</option>
-                <option></option>
-                <option></option>
-                </select>
-                <select>
-                <option>열</option>
-                <option></option>
-                <option></option>
-                </select>
-                <select>
-                <option>번</option>
-                <option></option>
-                <option></option>
-                </select>
+            <div>좌석 후기</div>
+            <WriteButton onClick={OnClickWrite} text={"후기 작성"}></WriteButton>
+            {seModalOpen && <ReviewModal open={seModalOpen} confirm={confirmModal} close={closeModal} type={true} header="좌석 후기">
+            <div>
+                <div> 좌석
+                    <select>
+                    <option>층</option>
+                    <option></option>
+                    <option></option>
+                    </select>
+                    <select>
+                    <option>구역</option>
+                    <option></option>
+                    <option></option>
+                    </select>
+                    <select>
+                    <option>열</option>
+                    <option></option>
+                    <option></option>
+                    </select>
+                    <select>
+                    <option>번</option>
+                    <option></option>
+                    <option></option>
+                    </select>
+                </div>
+                <textarea placeholder="관람하신 좌석의 후기를 작성해주세요."></textarea>
             </div>
-            <textarea input={seText} placeholder="관람하신 좌석의 후기를 작성해주세요."></textarea>
-            </fieldset>
-          
-            </div>
-        </ReviewModal>}
+            </ReviewModal>}
+
  
         </div>
     );
