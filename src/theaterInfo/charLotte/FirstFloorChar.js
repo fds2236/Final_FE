@@ -25,9 +25,6 @@ const onClickSeat = (event) => {
     if(grade === "real purple") { grade = "VIP"}
     else if (grade === "real lightgreen") {grade = "R"}
 
-
-
-
     // 코드를 잘 보면, 부모자식 관계의 className을 보면 row > seats > seat 이다
     // 내가 지금 몇번째 row인지 확인하려고 이전의 row의 갯수를 세는 (이전 모든 형제노드 갯수) 함수를 만들어 놓았으니
     // row 까지 두번 올라간 후 형제노드를 찾아야 한다
