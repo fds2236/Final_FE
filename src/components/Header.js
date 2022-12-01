@@ -16,17 +16,18 @@ const Menu = styled.div`
     font-size: 11px;  
     color: #ffffff;
     cursor: pointer;
-
   }
 `;
 
+
 const Logo = styled.div`
  color: #CF0A0A;
+
  p {
     font-size : 18px;
  }
 
- h1 {
+ h1 { 
     font-size : 50px;
  }
 `;
@@ -58,14 +59,13 @@ const Header = () => {
             : 
             // 로그인했을 때 => 알림, ~~~님, 로그아웃, 마이페이지, 멤버십
             (<>
-             <FaBell/>
+             <FaBell color="white"/>
              <div className="menu_item">{whoLoginNow}님</div>
              <button onClick={onClickLogout} className="menu_item">로그아웃</button>
              <div className="menu_item">마이페이지</div>
-             <Link to={"/Like"} className="menu_item">찜하기</Link>
+             <Link to = {"/Membership"} className="menu_item">멤버십</Link>
             </>)
             }
-            <Link to = {"/Membership"} className="menu_item">멤버십</Link>
             <Link to = {"/Cs"} className="menu_item">고객센터</Link>
         </Menu>
         
