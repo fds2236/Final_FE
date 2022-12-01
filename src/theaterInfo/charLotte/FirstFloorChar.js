@@ -44,7 +44,7 @@ const FirstFloorChar = () => {
         window.localStorage.setItem("floor",1);
         let seatInfoMode = window.localStorage.getItem("seatInfoMode");
         console.log("seatInfoMode : " + seatInfoMode)
-        //if(seatInfoMode === "후기") {
+        if(seatInfoMode === "예매") {
             
              for(let i = 8193 ; i <= 8954 ; i++) {
 
@@ -63,22 +63,18 @@ const FirstFloorChar = () => {
                         document.getElementById(i).parentNode.setAttribute('class','real lightgreen');
                         window.localStorage.setItem("price","R");
                         console.log(i);
-                    }catch{}
+                    } catch{}
                 }
                 
-                
-
-            
-
 
              }
              
 
 
 
-        // } else {
+        } else {
 
-        // }
+        }
         
         
 
