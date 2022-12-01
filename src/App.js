@@ -15,7 +15,9 @@ import Reservation from './reservation/Reservation';
 import Cs from './cs/Cs';
 import SignUp from './signup/SignUp';
 import Like from './util/Like';
+import SeatView from './review/SeatView';
 import Membership from './membership/Membership';
+import Mypage from './mypage/Mypage';
 
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
         <Route path='/Reservation' element={<Reservation />} />
         <Route path='/Like' element={<Like />} />
         <Route path='/Cs' element={<Cs />} />
+        <Route path='/SeatView' element={<SeatView />} />
+        <Route path='/Mypage' element={<Mypage />} />
         <Route path='/Membership' element={<Membership/>} />
       </Routes>
       <Footer/>
