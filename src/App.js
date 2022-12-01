@@ -10,7 +10,7 @@ import FirstFloorChung from './theaterInfo/chungmuArt/FirstFloorChung';
 import SecondFloorChung from './theaterInfo/chungmuArt/SecondFloorChung';
 import ThirdFloorChung from './theaterInfo/chungmuArt/ThirdFloorChung';
 import Review from './review/Review';
-import WriteReview from './review/WriteReview';
+
 import Reservation from './reservation/Reservation';
 import Cs from './cs/Cs';
 import SignUp from './signup/SignUp';
@@ -35,7 +35,6 @@ function App() {
         <Route path='/Login' element={<Login />} />
         <Route path='/SignUp' element={<SignUp />} />
         <Route path='/Review' element={<Review />} />
-        <Route path='/WriteReview' element={<WriteReview />} />
         <Route path='/Reservation' element={<Reservation />} />
         <Route path='/Like' element={<Like />} />
         <Route path='/Cs' element={<Cs />} />

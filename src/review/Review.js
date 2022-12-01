@@ -5,15 +5,35 @@ import { Link } from "react-router-dom";
 import MuteApi from "../api/MuteApi";
 import Rating from "../util/Rating";
 import ReviewModal from "../review/ReviewModal";
+import ReviewList from "./ReviewList";
+import ReviewTotal from "./ReviewTotal";
+import ReviewSeat from "./ReviewSeat";
+import Theater from "../theaterInfo/Theater";
 
 
 // 후기 view - 도연 작업중
+
+const TmpBox = styled.div`
+   
+    width: 90%;
+    height: fit-content;
+    border: 2px solid black;
+`;
 
 const Review = () => {
 
     useEffect(()=>{
         window.localStorage.setItem("seatInfoMode","NONE");
     })
+
+    const [count, setCount] = useState(0)
+    
+
+    const onClickNext = () => {
+        console.log("현재 카운트 : "+count);
+        setCount(count + 1);
+       
+    }
 
     const [reviewMuId, setReviewMuId] = useState(''); // 뮤지컬 후기 글 번호
     const [musical, setMusical] = useState(''); // 공연 ID
@@ -96,48 +116,18 @@ const Review = () => {
 
     return (
         <div className="container">
-
-            <div>총평 후기</div>
-            <WriteTotalButton onClick={OnClickTotalWrite} text={"후기 작성"}></WriteTotalButton>
-            {muModalOpen && <ReviewModal open={muModalOpen} confirm={confirmModal} close={closeModal} type={true} header="총평 후기">
-            <div>
-                <fieldset>
-                    {/* 총점은 평균내서 기본적으로 색깔 나와있게 수정하기 !!! */}
-                    <div> 총점 <Rating/></div> 
-                    <div> 연출 <Rating/></div>
-                    <div> 스토리 <Rating/></div>
-                    <div> 캐스팅 <Rating/></div>
-                    <div> 넘버 <Rating/></div>
-                </fieldset>
-                <fieldset>
-                    <div>후기 작성</div>
-                    <textarea placeholder="관람하신 뮤지컬의 총평을 작성해주세요."></textarea>
-                </fieldset>
-            </div>
-            </ReviewModal>}
             
-
-
-            <div>좌석 후기</div>
-            <WriteSeatButton onClick={OnClickSeatWrite} text={"후기 작성"}></WriteSeatButton>
-            {seModalOpen && <ReviewModal open={seModalOpen} confirm={confirmModal} close={closeModal} type={true} header="좌석 후기">
-            <div>
-                <fieldset>
-                    {/* 총점은 평균내서 기본적으로 색깔 나와있게 수정하기 !!! */}
-                    <div> 총점 <Rating/></div> 
-                    <div> 좌석 <Rating/></div>
-                    <div> 시야 <Rating/></div>
-                    <div> 음향 <Rating/></div>
-                    <div> 조명 <Rating/></div>
-                </fieldset>
-                <fieldset>
-                    {/* 좌석은 아무거나 선택할 수 있음. 내 예매내역에 있는 좌석만 가져올 수 없을까?? */}
-                    <div> 좌석 <input / > <button>좌석 선택</button>
-                    </div>
-                    <textarea placeholder="관람하신 좌석의 후기를 작성해주세요."></textarea>
-                </fieldset>
-            </div>
-            </ReviewModal>}
+            
+    
+            <button onClick={onClickNext}>{ (count === 0) ? "후기 작성하기" : "다음으로" }</button>
+            <TmpBox>
+            {count === 0 ? <ReviewList /> : null}
+            {count === 1 ? <Theater /> : null }
+            {count === 2 ? <ReviewSeat /> : null }
+            {count === 3 ? <ReviewTotal/> : null}
+            {count === 4 ? <h1>끝</h1> : null}
+            {count === 5 ? setCount(0) : null}
+            </TmpBox>
 
  
         </div>
