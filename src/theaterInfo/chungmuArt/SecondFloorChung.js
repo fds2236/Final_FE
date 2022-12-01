@@ -2,6 +2,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import styled from "styled-components";
 import { ReactDOM } from "react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import '../seats.css';
 
 
@@ -25,12 +26,17 @@ const onClickSeat = (event) => {
     // row 까지 두번 올라간 후 형제노드를 찾아야 한다
     // parentNode를 두번 사용해 두번 올라간다 
     let parentNode = prevAll(event.currentTarget.parentNode.parentNode);
-
-    alert(parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + tmp);
+    let floor = window.localStorage.getItem("floor");
+    alert(floor + "층 "+parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + tmp);
     console.log(parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + tmp);
 }
 
 const SecondFloorChung = () => {
+
+    useEffect(() => {
+        window.localStorage.setItem("floor",2);
+        //document.getElementById('8452').parentNode.setAttribute('class','real red');
+    })
     return (
         <>
         
