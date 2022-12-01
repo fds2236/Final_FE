@@ -44,8 +44,7 @@ const FirstFloorChar = () => {
         window.localStorage.setItem("floor",1);
         let seatInfoMode = window.localStorage.getItem("seatInfoMode");
         console.log("seatInfoMode : " + seatInfoMode)
-        if(seatInfoMode === "예매") {
-            
+        if(seatInfoMode === "예매") {         
              for(let i = 8193 ; i <= 8954 ; i++) {
 
                 if((i>=8414 && i<= 8568)){    // VIP좌석
@@ -65,12 +64,16 @@ const FirstFloorChar = () => {
                         console.log(i);
                     } catch{}
                 }
-                
-
              }
-             
-
-
+            
+        //seatInfoMode === "후기"인 경우
+        // 등록된 후기가 있을 경우
+        // 1-2 : red
+        // 2-3 : yellow
+        // 3-4 : orange
+        // 4-5 : green
+        // 등록된 후기가 없을 경우
+        // grey
 
         } else {
 

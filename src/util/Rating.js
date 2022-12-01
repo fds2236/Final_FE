@@ -57,7 +57,6 @@ function Rating() {
 
   return (
     <Wrap>
-      <h1>별점</h1>
       <Stars>
         {/* 별의 index값이 el에 찍힘 */}
         {StarArr.map((el, idx) => {

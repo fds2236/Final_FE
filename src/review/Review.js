@@ -6,6 +6,7 @@ import MuteApi from "../api/MuteApi";
 import Rating from "../util/Rating";
 import ReviewModal from "../review/ReviewModal";
 
+
 // 후기 view - 도연 작업중
 
 const Review = () => {
@@ -32,25 +33,34 @@ const Review = () => {
     const [muModalOpen, setMuModalOpen] = useState("");
     const [seModalOpen, setSeModalOpen] = useState("");
 
-    // const [muStar, setMuStar] = useState("");  // 별점
+    const [muStar, setMuStar] = useState("");  // 별점
 
     // 후기 작성 버튼
-    const WriteButton = (props) => {
+    const WriteTotalButton = (props) => {
         return (
             <>
-                <button onClick={OnClickWrite} >{props.text}</button>
+                <button onClick={OnClickTotalWrite} >{props.text}</button>
             </>
         );
     }
 
-    // 후기 쓰기 취소 버튼
-    const ReturnButton = (props) => {
+    const WriteSeatButton = (props) => {
         return (
             <>
-                <button onClick={OnClickToList} >{props.text}</button>
+                <button onClick={OnClickSeatWrite} >{props.text}</button>
             </>
         );
     }
+
+
+    // 후기 쓰기 취소 버튼
+    // const ReturnButton = (props) => {
+    //     return (
+    //         <>
+    //             <button onClick={OnClickToList} >{props.text}</button>
+    //         </>
+    //     );
+    // }
 
     const OnClickToList = () => {   
         window.location.replace('/Review');
@@ -59,8 +69,12 @@ const Review = () => {
 
     // Api 호출
     // 후기 작성 버튼이 눌려지면 동작하는 함수
-    const OnClickWrite = () => {
+    const OnClickTotalWrite = () => {
         setMuModalOpen(true);
+    };
+
+    const OnClickSeatWrite = () => {
+        setSeModalOpen(true);
     };
 
     const confirmModal = async() => {
@@ -75,6 +89,7 @@ const Review = () => {
 
     const closeModal = () => {
         setMuModalOpen(false);
+        setSeModalOpen(false);
     };
 
     
@@ -83,16 +98,17 @@ const Review = () => {
         <div className="container">
 
             <div>총평 후기</div>
-            <WriteButton onClick={OnClickWrite} text={"후기 작성"}></WriteButton>
+            <WriteTotalButton onClick={OnClickTotalWrite} text={"후기 작성"}></WriteTotalButton>
             {muModalOpen && <ReviewModal open={muModalOpen} confirm={confirmModal} close={closeModal} type={true} header="총평 후기">
             <div>
-                <div>별점 [{}]</div>
+                <div> 연출 <Rating /></div>
+                <div> 스토리 <Rating /></div>
                 <textarea placeholder="관람하신 뮤지컬의 총평을 작성해주세요."></textarea>
             </div>
             </ReviewModal>}
 
             <div>좌석 후기</div>
-            <WriteButton onClick={OnClickWrite} text={"후기 작성"}></WriteButton>
+            <WriteSeatButton onClick={OnClickSeatWrite} text={"후기 작성"}></WriteSeatButton>
             {seModalOpen && <ReviewModal open={seModalOpen} confirm={confirmModal} close={closeModal} type={true} header="좌석 후기">
             <div>
                 <div> 좌석

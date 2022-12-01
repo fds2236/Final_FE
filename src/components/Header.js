@@ -18,11 +18,9 @@ const Menu = styled.div`
     cursor: pointer;
   }
 `;
-
-
 const Logo = styled.div`
- color: #CF0A0A;
-
+text-decoration: none;
+color: #CF0A0A;
  p {
     font-size : 18px;
  }
@@ -71,8 +69,10 @@ const Header = () => {
         
         {/* Logo영역은 추후 로고가 만들어지면 변경 예정 */}
         <Logo>
+        <Link to={"/"} className="logo_link">
             <p className="logo_item">당신의 <b>뮤지컬 메이트</b></p>
             <h1 className="logo_item">MUTE</h1>
+        </Link>
         </Logo>
 
         <Nav>
