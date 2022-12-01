@@ -36,7 +36,6 @@ const onClickSeat = (event) => {
 const FirstFloorChar = () => {  
 
     useEffect(() => {
-        
         //document.getElementById('8452').parentNode.setAttribute('class','real red');
     })
 
