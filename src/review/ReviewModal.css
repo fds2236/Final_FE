@@ -60,7 +60,7 @@
     }
   
     .modal > section > footer button:hover {
-      background-color: #CF0A0A; /* close 버튼에 마우스 가져다대면 색깔 바뀜 */
+      background-color: #CF0A0A; 
     }
   
     .modal.openModal {

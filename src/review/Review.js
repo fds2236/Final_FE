@@ -2,27 +2,11 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Modal from "../review/ReviewModal";
 import MuteApi from "../api/MuteApi";
 import Rating from "../util/Rating";
 import ReviewModal from "../review/ReviewModal";
 
 // 후기 view - 도연 작업중
-
-// 후기 쓰기 취소 버튼
-const ReturnButton = (props) => {
-    return (
-        <>
-            <button onClick={OnClickToList} >{props.text}</button>
-        </>
-    );
-}
-
-const OnClickToList = () => {   
-    window.location.replace('/Review');
-}
-
-
 
 const Review = () => {
     const [reviewMuId, setReviewMuId] = useState(''); // 뮤지컬 후기 글 번호
@@ -38,33 +22,62 @@ const Review = () => {
     const [submit, setSubmit] = useState(false); // 서버로 전송할 수 있는 조건 체크
     const [resData, setResData] = useState(''); // 서버에서 받는 결과 데이터
 
-    // const [muStar, setMuStar] = useState("");  // 별점
 
-    // 후기 작성 버튼 컴포넌트
-const WriteButton = (props) => {
-    return (
-        <>
-            <button onClick={OnClickWrite} >{props.text}</button>
-        </>
-    );
-}
+    // 텍스트 입력
+    // const [muText, setMuText] = useState(false); // 총평 후기(필수)
+    // const [seText, setSeText] = useState(false); // 좌석 후기(선택)
 
+    // 체크박스
+    const [Mucheck, setMuCheck] = useState(true); // 총평 후기(필수)
+    const [Secheck, setSeCheck] = useState(false); // 좌석 후기(선택)
 
+    // 좌석 후기 입력하면 자동으로 체크박스 체크
+    const muText = (e) => {
+        if(e.target.input === false) setMuCheck(false);
+        else {
+        }
+        setMuCheck(true);
+    };
 
- 
-    let musicalStar = window.localStorage.getItem("musicalStar");
+    const seText = (e) => {
+        if(e.target.input === false) setSeCheck(false);
+        else {
+        }
+        setSeCheck(true);
+    };
 
-
-    // 페이지를 삭제하기 위한 현재 아이디 
-    let whoLogin = window.localStorage.getItem('whoLogin');
-
-    const nowReviewMuId = window.localStorage.getItem("reviewMuId");
+    // 총평 후기 안쓰고 좌석 후기 체크하면 모달창 띄우기??
+    
 
     // 모달
     const [modalOpen, setModalOpen] = useState("");
-    const [modalText, setModalText] = useState("");
 
-    // APi 호출
+    // const [muStar, setMuStar] = useState("");  // 별점
+
+    // 후기 작성 버튼
+    const WriteButton = (props) => {
+        return (
+            <>
+                <button onClick={OnClickWrite} >{props.text}</button>
+            </>
+        );
+    }
+
+    // 후기 쓰기 취소 버튼
+    const ReturnButton = (props) => {
+        return (
+            <>
+                <button onClick={OnClickToList} >{props.text}</button>
+            </>
+        );
+    }
+
+    const OnClickToList = () => {   
+        window.location.replace('/Review');
+    }
+
+
+    // Api 호출
     // 후기 작성 버튼이 눌려지면 동작하는 함수
     const OnClickWrite = () => {
         setModalOpen(true);
@@ -94,15 +107,14 @@ const WriteButton = (props) => {
         {modalOpen && <ReviewModal open={modalOpen} confirm={confirmModal} close={closeModal} type={true} header="Review">
         <div>
             <fieldset>
-            <h4>Musical Review(필수)</h4>
-            <div>별점 [{musicalStar}]</div>
-            <textarea placeholder="뮤지컬 후기를 작성해주세요."></textarea>
-            <button>확인</button>
+            <h4><input type="checkbox" checked={Mucheck}/>총평 후기(필수)</h4>
+            <div>별점 [{}]</div>
+            <textarea input={muText} placeholder="관람하신 뮤지컬의 총평을 작성해주세요."></textarea>
             </fieldset>
 
             <fieldset>
-            <h4>Seat Review(선택)</h4>
-            <div> 좌석 선택
+            <h4><input type="checkbox" checked={Secheck}/>좌석 후기(선택)</h4>
+            <div> 좌석
                 <select>
                 <option>층</option>
                 <option></option>
@@ -124,10 +136,8 @@ const WriteButton = (props) => {
                 <option></option>
                 </select>
             </div>
-            <textarea placeholder="좌석 후기를 작성해주세요."></textarea>
-            <button>확인</button>
+            <textarea input={seText} placeholder="관람하신 좌석의 후기를 작성해주세요."></textarea>
             </fieldset>
-            {/* <button onClick={onSubmit}>확인</button> */}
           
             </div>
         </ReviewModal>}

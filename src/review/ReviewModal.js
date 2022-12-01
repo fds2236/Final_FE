@@ -2,9 +2,10 @@ import React from 'react';
 import '../App';
 import './ReviewModal.css';
 
-// 후기 작성 - 도연 작업중 
+// 후기 작성 모달 - 도연 작업중
 
 const ReviewModal = (props) => {
+
     const { open, confirm, close, type, header } = props;
     return (
         <div className={open ? 'openModal modal' : 'modal'}>
