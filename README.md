@@ -19,7 +19,7 @@ SpringBoot + React 뮤지컬 정보 및 예매 사이트
 - IDE : VS Code, IntelliJ
 - Build : Gradle
 - Language : Java11, Javascript ES6
-- FrontEnd : HTML5, CSS(Bootstrap)
+- FrontEnd : HTML5, CSS3(Bootstrap)
 - Library : ReactJS, Spring Data JPA
 - DB : MySQL(DBeaver)
 - Server : Tomcat9.0
