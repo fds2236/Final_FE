@@ -64,55 +64,55 @@ const Review = () => {
 
     const [muStar, setMuStar] = useState("");  // 별점
 
-    // 후기 작성 버튼
-    const WriteTotalButton = (props) => {
-        return (
-            <>
-                <button onClick={OnClickTotalWrite} >{props.text}</button>
-            </>
-        );
-    }
+    // // 후기 작성 버튼
+    // const WriteTotalButton = (props) => {
+    //     return (
+    //         <>
+    //             <button onClick={OnClickTotalWrite} >{props.text}</button>
+    //         </>
+    //     );
+    // }
 
-    const WriteSeatButton = (props) => {
-        return (
-            <>
-                <button onClick={OnClickSeatWrite} >{props.text}</button>
-            </>
-        );
-    }
+    // const WriteSeatButton = (props) => {
+    //     return (
+    //         <>
+    //             <button onClick={OnClickSeatWrite} >{props.text}</button>
+    //         </>
+    //     );
+    // }
 
 
-    const OnClickToList = () => {   
-        window.location.replace('/Review');
-    }
+    // const OnClickToList = () => {   
+    //     window.location.replace('/Review');
+    // }
 
-    let array = [1, 2, 3 ,4]
+    // let array = [1, 2, 3 ,4]
     
 
-    // Api 호출
-    // 후기 작성 버튼이 눌려지면 동작하는 함수
-    const OnClickTotalWrite = () => {
-        setMuModalOpen(true);
-    };
+    // // Api 호출
+    // // 후기 작성 버튼이 눌려지면 동작하는 함수
+    // const OnClickTotalWrite = () => {
+    //     setMuModalOpen(true);
+    // };
 
-    const OnClickSeatWrite = () => {
-        setSeModalOpen(true);
-    };
+    // const OnClickSeatWrite = () => {
+    //     setSeModalOpen(true);
+    // };
 
-    const closeModal = () => {
-        setMuModalOpen(false);
-        setSeModalOpen(false);
-    };
+    // const closeModal = () => {
+    //     setMuModalOpen(false);
+    //     setSeModalOpen(false);
+    // };
 
-    const confirmModal = async() => {
-        try {
-            const res =  await MuteApi.WriteReview(reviewMuId, musical, member, writeDate, scoreStory, scoreDirect, scoreCast, scoreNumber, reviewMuTxt);
-            setResData(res.data);
+    // const confirmModal = async() => {
+    //     try {
+    //         const res =  await MuteApi.WriteReview(reviewMuId, musical, member, writeDate, scoreStory, scoreDirect, scoreCast, scoreNumber, reviewMuTxt);
+    //         setResData(res.data);
 
-        } catch (e) {
-            alert("오류 : " + e);
-        }
-    };
+    //     } catch (e) {
+    //         alert("오류 : " + e);
+    //     }
+    // };
 
     return (
         <div className="container">
@@ -121,10 +121,10 @@ const Review = () => {
     
             <button onClick={onClickNext}>{ (count === 0) ? "후기 작성하기" : "다음으로" }</button>
             <TmpBox>
-            {count === 0 ? <ReviewList /> : null}
+            {count === 0 ? <ReviewList /> : null} 
             {count === 1 ? <Theater /> : null }
-            {count === 2 ? <ReviewSeat /> : null }
-            {count === 3 ? <ReviewTotal/> : null}
+            {count === 2 ? <ReviewTotal /> : null }
+            {count === 3 ? <ReviewSeat/> : null}
             {count === 4 ? <h1>끝</h1> : null}
             {count === 5 ? setCount(0) : null}
             </TmpBox>
