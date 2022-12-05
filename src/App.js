@@ -13,7 +13,7 @@ import Review from './review/Review';
 
 import Reservation from './reservation/Reservation';
 import Cs from './cs/Cs';
-import SignUp from './signup/SignUp';
+import SingUp from './login/SignUp';
 import Like from './util/Like';
 import SeatView from './review/SeatView';
 import Membership from './membership/Membership';
@@ -33,7 +33,7 @@ function App() {
         <Route path="/SecondFloorChung" element={<SecondFloorChung />} />
         <Route path="/ThirdFloorChung" element={<ThirdFloorChung />} />
         <Route path='/Login' element={<Login />} />
-        <Route path='/SignUp' element={<SignUp />} />
+        <Route path='/SignUp' element={<SingUp />} />
         <Route path='/Review' element={<Review />} />
         <Route path='/Reservation' element={<Reservation />} />
         <Route path='/Like' element={<Like />} />

@@ -12,6 +12,22 @@ const MuteApi =  {
         return await axios.post(MUTE_DOMAIN + "member/login", loginObj, HEADER);
     },
 
+        // 회원가입
+        signUp: async function(id, pwd, name, mail, phone, addr) {
+            console.log("이메일 : " + mail);
+            console.log("주소 : " + addr);
+    
+            const signUpObj = {
+                usdId: id,
+                pwd: pwd,
+                Name: name,
+                Mail: mail,
+                phone: phone,
+                addr: addr
+            }
+            return await axios.post(MUTE_DOMAIN + "member/signup", signUpObj, HEADER);
+        },
+
     // 후기 작성 - 도연
     WriteReview: async function(reviewMuId, musical, member, writeDate, scoreStory, scoreDirect, scoreCast, scoreNumber, reviewMuTxt) {
         const reviewObj = {
