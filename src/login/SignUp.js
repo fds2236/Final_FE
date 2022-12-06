@@ -95,7 +95,8 @@ const SingUp = () => {
 
     // 전화번호 힌트
     const onChangePhone = (e) => { 
-        const phoneRegex =  /\d{3}-\d{4}-\d{4}/;
+        setIsPhone(e.target.value.replace(/[^0-9]/g, '').replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`));
+        const phoneRegex = (/[^0-9]/g, '').replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
         const phoneCurrent = e.target.value;
         setPhone(phoneCurrent);
         if (!phoneRegex.test(phoneCurrent)) {
@@ -108,7 +109,7 @@ const SingUp = () => {
     }
 
     // 주소
-    const [enroll_company, setEnroll_company] = useState({
+    const [enroll_addr, setEnroll_addr] = useState({
         address:'',
     });
 
@@ -117,8 +118,8 @@ const SingUp = () => {
     const handleInput = (e) => {
         console.log(e.target.value);
         setAddr(e.target.value);
-        setEnroll_company({
-            ...enroll_company,
+        setEnroll_addr({
+            ...enroll_addr,
             [e.target.name]:e.target.value,
         })
         console.log(e.target.name);
@@ -198,7 +199,7 @@ const SingUp = () => {
             tranMail = write + "@" + wrtieDomain;
             setMail(write + "@" + wrtieDomain);
         } try {
-            const res = await MuteApi.signUp(inputId, inputPwd, inputName, tranMail, inputPhone, enroll_company.address);
+            const res = await MuteApi.signUp(inputId, inputPwd, inputName, tranMail, inputPhone, enroll_addr.address);
             
             console.log(res.data.result);
             
@@ -324,14 +325,13 @@ const SingUp = () => {
             {/* 주소 입력창 */}
             <div>
                 <label className="address_search">주소</label>
-                <input className="addr" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.address}/>
+                <input className="addr" type="text" required={true} name="address" onChange={handleInput} value={enroll_addr.address}/>
                 <button onClick={handleComplete}>주소 검색</button>
-                {popup && <Post company={enroll_company} setcompany={setEnroll_company}></Post>}    
+                {popup && <Post company={enroll_addr} setcompany={setEnroll_addr}></Post>}    
             </div>   
             </div>
             
             <div>
-            {/* <button><Link to="/" className="link_item">취소하기</Link></button> */}
             <button onClick={onClickSignUp} className="SignUpButton">회원가입</button></div>
       
             <div className='footer'>이미 아이디가 있으신가요? <button><div><Link to="/Login" className="link_item">＞ 로그인</Link></div></button></div>
