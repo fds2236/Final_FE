@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import '../seats.css';
 import { flushSync } from "react-dom";
 
+let arr = [];
+let arrString = [];
 
 function prevAll(element) { // element 이전의 모든 형제노드의 갯수를 구하는 함수
     let result = []; //빈 배열을 만들어서 앞에있는 모든 형제노드를 넣어줄 예정 
@@ -18,6 +20,9 @@ function prevAll(element) { // element 이전의 모든 형제노드의 갯수�
 
 const onClickSeat = (event) => {
 
+
+    // 아래쪽으로는 임시 공통사항 (alert창으로 띄워주기)
+    
     let pkNum = event.currentTarget.getAttribute("pk");
     let grade = event.currentTarget.getAttribute("class");
     let seatNum = event.currentTarget.innerText; // 현재 currentTarget의 innerText (태그 안의 텍스트)를 불러온다
@@ -31,27 +36,88 @@ const onClickSeat = (event) => {
     // parentNode를 두번 사용해 두번 올라간다 
     let parentNode = prevAll(event.currentTarget.parentNode.parentNode);
     let floor = window.localStorage.getItem("floor");
-    alert(floor + "층 "+parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + pkNum + "\n등급 : " + grade);
+    //alert(floor + "층 "+parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + pkNum + "\n등급 : " + grade);
     console.log(parentNode + "열 " + seatNum + "번 좌석입니다 \n" + "PK값 : " + pkNum);
+
+
+    if(window.localStorage.getItem("seatInfoMode") === "예매") {  // 예매일때 onClick 상황
+        
+        
+        arr = [];
+        arrString = [];
+
+        if(window.localStorage.getItem(pkNum) === null ){
+            console.log("예매 onclick 진입 - 선택 안되어있음");
+            event.currentTarget.setAttribute("class","selected");
+            window.localStorage.setItem(pkNum,"selected")
+        }
+        else{
+            console.log("예매 onclick 진입 - 선택 되어있음");
+            // event.currentTarget.setAttribute("class","selected");
+            
+
+
+                if((pkNum>=8414 && pkNum<= 8568)){    // VIP좌석
+                    try{
+                        document.getElementById(pkNum).parentNode.setAttribute('class','real purple');
+                        
+                    } catch{
+                        
+                    }
+                }
+
+                if((pkNum>=8193 && pkNum<=8391) || (pkNum>=8756 && pkNum<= 8954) || (pkNum>=8569 && pkNum<= 8733) ){    //  R 좌석
+                    try{
+                        document.getElementById(pkNum).parentNode.setAttribute('class','real lightgreen');
+                        
+                    } catch{}
+                }
+            
+            window.localStorage.setItem(pkNum,null);
+            console.log("좌석 취소후 상황 : " + window.localStorage.getItem(pkNum));
+        }
+       
+    }
+    for(let i = 8193; i<=8954 ; i++) {
+        if(window.localStorage.getItem(`${i}`) === "selected") {
+            arr.push(i);
+            arrString.push(floor + "층 "+parentNode + "열 " + seatNum + "번");
+        }
+    }
+    console.log("arr 현재 상황 : " + arr);
+    console.log("arrString 현재 상황 : " + arrString);
+
+    window.localStorage.setItem("arrString",arrString);
+
 }
 
 
 
 
 const FirstFloorChar = () => {  
+    
 
     useEffect(() => {
         window.localStorage.setItem("floor",1);
+        window.localStorage.removeItem("arrString");
         let seatInfoMode = window.localStorage.getItem("seatInfoMode");
         console.log("seatInfoMode : " + seatInfoMode)
-        if(seatInfoMode === "예매") {         
+
+        // 이 페이지가 시작되면 일단 모든 좌석 선택 locatStorage를 지우고 시작한다
+        for(let i = 1; i<=20000 ; i++){
+            window.localStorage.removeItem(`${i}`);
+        }
+
+        if(seatInfoMode === "예매") {    
+
              for(let i = 8193 ; i <= 8954 ; i++) {
+
 
                 if((i>=8414 && i<= 8568)){    // VIP좌석
                     try{
                         document.getElementById(i).parentNode.setAttribute('class','real purple');
-                        window.localStorage.setItem("price","VIP");
-                        console.log(i);
+                       
+                        
                     } catch{
                         
                     }
@@ -60,12 +126,18 @@ const FirstFloorChar = () => {
                 if((i>=8193 && i<=8391) || (i>=8756 && i<= 8954) || (i>=8569 && i<= 8733) ){    //  R 좌석
                     try{
                         document.getElementById(i).parentNode.setAttribute('class','real lightgreen');
-                        window.localStorage.setItem("price","R");
-                        console.log(i);
+                        
                     } catch{}
                 }
              }
             
+        
+
+        } else if(seatInfoMode === "후기"){
+
+        }
+        else {} // seatInfoMode가 NONE인 경우
+        
         //seatInfoMode === "후기"인 경우
         // 등록된 후기가 있을 경우
         // 1-2 : red
@@ -74,20 +146,6 @@ const FirstFloorChar = () => {
         // 4-5 : green
         // 등록된 후기가 없을 경우
         // grey
-
-        } else {
-
-        }
-        
-        
-
-
-
-
-
-
-
-
         //document.getElementById('8452').parentNode.setAttribute('class','real red');
     })
 
@@ -95,14 +153,17 @@ const FirstFloorChar = () => {
     return (
         <>
         
-        <h1>샤롯데 FirstFloor 입장 성공</h1>
+        <h1>샤롯데 FirstFloor 입장 성공</h1> 
         <Link to = "/"> Home으로 돌아가기</Link> <br></br>
         <Link to = "/FirstFloorChar">1층보기</Link> <br></br>
         <Link to = "/SecondFloorChar">2층보기</Link>
+        <h1>Selectd :{arrString.map( arr => arr )}</h1>
+        
         <div className="grid-containder modal-background" id="modal-background">  
         </div>
 
-
+        {/* 이따가 로컬스토리지 예매로 예매일때만 pk띄우기 */}
+        
         <div className="floor">
 
         
